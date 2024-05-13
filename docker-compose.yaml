@@ -1,0 +1,23 @@
+version: "3.5"
+services:
+  nats:
+    image: nats
+    container_name: nats
+    hostname: nats
+    command: --cluster_name nats-streaming
+    ports:
+      - 4223:4222
+      - 6223:6222
+      - 8223:8222
+
+  nats-streaming:
+    image: nats-streaming
+    container_name: nats-streaming
+    hostname: nats-streaming
+    command: "-p 4222 -m 8222 -hbi 5s -hbt 5s -hbf 2 -SD --cluster_id test"
+    ports:
+      - 4224:4222
+      - 6224:6222
+      - 8224:8222
+    depends_on:
+      - nats
