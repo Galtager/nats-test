@@ -4,11 +4,13 @@ How to run this?
 
 Install Docker Compose (https://docs.docker.com/compose/install/)
 
-To build a container in your docker docker-compose build
+To run this test use following commands
 
-Run all containers with docker-compose up
-
-To run it in the backgroung use d flag docker-compose up -d
+docker-compose build
+docker-compose up -d
+npm i
+npm run publish
+npm run listen
 
 To stop the containers use docker-compose stop
 
