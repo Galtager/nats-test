@@ -6,11 +6,19 @@ Install Docker Compose (https://docs.docker.com/compose/install/)
 
 To run this test use following commands
 
+# RUN
+
 docker-compose build
+
 docker-compose up -d
+
 npm i
+
 npm run publish
+
 npm run listen
+
+# STOP
 
 To stop the containers use docker-compose stop
 
