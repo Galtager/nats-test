@@ -1,10 +1,10 @@
 import nats from 'node-nats-streaming'
 
+console.clear()
+
 const stan = nats.connect('test', 'abc', {
     url: 'http://localhost:4224',
 });
-
-console.log("hi")
 
 stan.on('connect', () => {
     console.log("Publisher connected to NATS")
@@ -16,7 +16,8 @@ stan.on('connect', () => {
     })
 
     stan.publish('test:created', data, () => {
-        console.log("Event published")
+        console.log("Event published");
 
     })
+
 })
