@@ -15,7 +15,7 @@ stan.on('connect', () => {
         price: 20
     })
 
-    stan.publish('test:created', data, () => {
+    stan.publish('payment-service', data, () => {
         console.log("Event published");
 
     })
