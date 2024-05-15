@@ -25,7 +25,12 @@ stan.on('connect', () => {
 
     stan.on('close', onClose)
 
-    const options = stan.subscriptionOptions().setManualAckMode(true)
+    const options = stan
+        .subscriptionOptions()
+        .setManualAckMode(true)
+        .setDeliverAllAvailable()
+        .setDurableName('test:created')
+
     const subscription = stan.subscribe('test:created', 'listenerQueueGroup', options);
 
     subscription.on("message", onMsg);
